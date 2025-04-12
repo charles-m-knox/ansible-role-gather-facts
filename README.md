@@ -16,9 +16,31 @@ None currently.
 
 None.
 
-## Example Playbook
+## Usage
 
-Here's an example, not everything will be necessary for your use case:
+First, create a `requirements.yml` in your Ansible setup if you haven't already, here's an example:
+
+```yaml
+---
+collections:
+  - name: community.general
+  - name: ansible.posix
+  - name: community.crypto
+
+roles:
+  - name: charles-m-knox.gather-facts
+    src: https://github.com/charles-m-knox/ansible-role-gather-facts.git
+    scm: git
+    version: main
+```
+
+Next, install it:
+
+```bash
+ansible-galaxy role install -r requirements.yml
+```
+
+Now, in your `site.yml` (or whatever your playbook is named), use the role:
 
 ```yaml
 - name: gather facts
@@ -32,7 +54,7 @@ Here's an example, not everything will be necessary for your use case:
     ansible.builtin.gather_facts:
       gather_timeout: "120"
   roles:
-    - gather-facts
+    - charles-m-knox.gather-facts
   tags:
     - gather-facts
 ```

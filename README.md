@@ -37,7 +37,9 @@ roles:
 Next, install it:
 
 ```bash
-ansible-galaxy role install -r requirements.yml
+# include the -f flag to forceably re-install and get the latest (equivalent to
+# upgrading)
+ansible-galaxy role install -f -r requirements.yml
 ```
 
 Now, in your `site.yml` (or whatever your playbook is named), use the role:

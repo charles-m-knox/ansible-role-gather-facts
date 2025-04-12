@@ -1,0 +1,7 @@
+#SPDX-License-Identifier: MIT-0
+---
+- name: gather facts on-demand
+  gather_facts:
+    parallel: true
+  tags:
+    - gather-facts
